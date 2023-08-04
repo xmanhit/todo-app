@@ -50,21 +50,17 @@ const TodoList = ({ todos, isCompletedTodo, deleteTodo }) => {
               >
                 <p
                   onClick={() => isCompletedTodo(id)}
-                  className={
-                    completed
-                      ? "text-2xl duration-200 line-through text-gray-400 w-full text-todo"
-                      : "text-2xl duration-200 w-full text-todo"
-                  }
+                  className={`text-2xl duration-200 w-full text-todo ${
+                    completed ? "line-through text-gray-400" : ""
+                  }`}
                   data-testid="todo-text"
                 >
                   {text}
                 </p>
                 <TrashIcon
-                  className={
-                    showTrash === id
-                      ? "svg-inline--fa fa-trash fa-w-14 duration-150 text-yellow-600 block"
-                      : "svg-inline--fa fa-trash fa-w-14 duration-150 hidden"
-                  }
+                  className={`svg-inline--fa fa-trash fa-w-14 duration-150 ${
+                    showTrash === id ? "text-yellow-600 block" : "hidden"
+                  }`}
                   onClick={() => deleteTodo(id)}
                   data-testid="delete-todo-button"
                 />
